@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,8 @@ Route::get('/', function () {
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::get('registration', [AuthController::class, 'registration'])->name('registration');
 
-Route::get('/leads', function () {
-    return view('leads');
-})->name('lead');
+Route::get('leads', [LeadController::class, 'index'])->name('index.leads');
+Route::post('leads', [LeadController::class, 'store'])->name('store.leads');
+
+
 
